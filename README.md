@@ -4,7 +4,7 @@
 
 <b>Features:</b><br>
 `Jellyfin, aria2, ariang, rclone, rclone WebUI, Netdata, Cloud Commander, 
-Ssh, noVnc, filebrowser, SocialFish, L3MON, SayCheese, spotify-downloader, pyLoad, code-server, V2ray, NoMachine, Flutter, Glances, WeTTy, Kivy...`
+Ssh, noVnc, filebrowser, SocialFish, L3MON, SayCheese, spotify-downloader, pyLoad, code-server, V2ray, NoMachine, Flutter, Glances, WeTTy, Kivy, go-http-file-server...`
 
 
 # Usage
