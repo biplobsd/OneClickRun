@@ -417,7 +417,7 @@ class LocalhostRun:
         stdout=PIPE, stdin=PIPE, stderr=PIPE)
       #print("ssh -R 80:localhost:{self.port} {self.id}@ssh.localhost.run -o StrictHostKeyChecking=no -o ServerAliveInterval={self.interval} -o ServerAliveCountMax={self.retries}")
       try:
-        newAddr = re.findall("http://(.*?.localhost.run)", self.connection.stdout.readline().decode("utf-8"))[0]
+        newAddr = re.findall("(.*?.localhost.run)", self.connection.stdout.readline().decode("utf-8"))[0]
         localhostOpenDB[str(self.port)] = newAddr 
         accessSettingFile("localhostDB.json" , localhostOpenDB, v=False)
         return newAddr
