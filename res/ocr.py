@@ -470,3 +470,11 @@ class PortForward:
 class PortForward_wrapper(PortForward):
   def __init__(self,SERVICE,TOKEN,USE_FREE_TOKEN,connections,region,config):
     super(self.__class__,self).__init__(connections,region,SERVICE,TOKEN,USE_FREE_TOKEN,config)
+
+def findPackageR(id_repo, p_name):
+  import requests
+
+  for rawData in requests.get(f"https://api.github.com/repos/{id_repo}/releases").json():
+    for f in rawData['assets']:
+      if p_name == f['browser_download_url'][-len(p_name):]:
+        return f['browser_download_url']
