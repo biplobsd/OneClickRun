@@ -8,50 +8,6 @@ from subprocess import Popen,PIPE
 HOME = os.path.expanduser("~")
 CWD = os.getcwd()
 
-# All found ngrok authtoken from github
-tokens = {
-    "lostcatbox": "1X7aYWPuFKYzvewLbnNoMo71kZi_2uzbB966Q4TU5cpgNPKhy",
-    "zero-structure": "1UqHsShi6o3ketf426P5UtVdTfs_5XFD6sFRMkryka8fAbLd3",
-    "ekkleesia": "7LE18LK8zeaDYeybp5fKP_6GNG1oHEfhTnQE7s9qpw",
-    "SEARteam1928": "1Qe1IeySOQWSTnpQ3eFfr8j7Oi5_2zhanqnpZwHBhsfANd6yf",
-    "angenalZZZ": "7pWLVhS1gxiMAQdaFeYJy_31krnw9drNLLJftaNSFnm",
-    "lukikrk": "1XJNNnG8kZsPjjFmLsYNWCC0gIo_7VpBhwTcvhiuK4o2G2jbt",
-    "bhavya7777": "1XzP70k7YVrg7MMaHQWPks0Q8Za_7y6b1mTDJDmJWcuqt5qTp",
-    "hector605": "1Y14GB7E4acXxWYnVTiBejgnLuV_853z7mAgaTJxE9KY3HnCW",
-    "fouille": "1XkoKNLcyiPECcQfGUjrTVzN64P_7tv2YgC4DSnazyVtpCpHm",
-    "rikitz": "1Xc7z0uHxDoI9Ah06EQKgH61zoP_6WTPXDGvjFmcp2o7gNmqa",
-    "VictorM369": "3c4WZaxPbjeRwRibY5opU_2N4TTRKaDubtEWMeKkFXn",
-    "YHF7": "3fW4eXHdUN3ziCBXcahZ_3tnDdaTyLw8tKzJtKZkLp",
-    "cyberkallan": "3CqeFZQht43cG5Z2YKfyv_6aKTrgrbo1HtyRi78hRKK",
-    "Toxic-Omega": "1RCQwctVjSz8AIzHO6S55jm8XB8_5N6PqyZVnoN7mUVqF1yvT",
-    "DevLuDaley": "1XTxsRKP8XyxvaJigX9XFXU2FvK_4dqzLxNRJHBz8A3aoPC85",
-    "randyramig": "3Y8YSw6bvC9CsbYeRczmt_8akMuLYA3bAUshP1NCMnW",
-    "sz-xcf": "1XSYq8gmxzNgMlYQzERmC50uBot_6qURZnj43KsYF2GWaUamm",
-    "api1": "6qGnEsrCL4GqZ7hMfqpyz_7ejAThUCjVnU9gD5pbP5u",
-    "api2": "1Q4i7F6isO7zZRrrjBKZzZhwsMu_74yJqoEs1HrJh1zYyxNo1",
-    "api3": "1SCsbuawjv9d79jlhlfNljaFTaB_5heVkcR6C7Sk8UBaQ1U1C",
-    "api5": "1Q45NXgsx6oyusN3GiNAYvkNJPS_AveYUDBcPHsvRvf21WZv",
-    "api6": "1Q6smHt4Bzz9VEXTwj3a7p5Gdx2_5mp6ivT6N6nB3YmRHUEM3",
-    "api7": "7VJwGkCTTUubiGhgz6Gv6_5fMLganRSKj9ntdefnF5o",
-    "api9": "5S28rBKgc22ZW7evyedNT_YvEm15RZSHdXgS4QwYbk",
-    "api12": "3VnrrXDQVHoNp9HvHFhqX_3X4JExwm6L9n6w4ppL1qy",
-    "api13": "1ShshNwfhQcyOqlMjnBDVE5X5jC_3WAmzomMHAgkunka4dSck",
-    "api14": "772yFAui6ynH9AYx29HHS_5Xcr88pHtPTQLwewv7Ctk",
-    "api16": "5HmAWwzDdkYp8CdzDQMDS_4BGwsK7AdMssLnSttZEeh",
-    "api17": "1T750atJi3xccndeUqJ4ewiS62o_2s6f8GUccL1qDUXTGSftN",
-    "api18": "1QUysRUo97w5mdB6sCZvTTMM0aK_3unoMs6nYd7grgCkuhbj3",
-    "api19": "3CqeFZQht43cG5Z2YKfyv_6aKTrgrbo1HtyRi78hRKK",
-    "api20": "5eMywZLisJNdybqpFLVgs_4XQDeF3YCMHu1Ybf7mVE6",
-    "api21": "4Cg1cEwCT7Ek89zT4VcdB_4GPAjMFgu6nhwY7SxQm94",
-    "api22": "1SGs4s9NrhxP9FRURszjL1nITSv_otcpfpb6aMVEL13u3dv1",
-    "api23": "1StL3sIccfR624Uc3BGV36XA0qG_6cAMMYFdKtPjtWax3AHSK",
-    "api24": "1SuK2ukM9Z4NohoJbU9224uMzXr_6h1ABdCrJU2EviZv4RN4r",
-    "api26": "7ecmt2Kux5uYsTUHrrqGU_3W9CJnaSeSyxiwkjxNhHc",
-    "api27": "3CqeFZQht43cG5Z2YKfyv_6aKTrgrbo1HtyRi78hRKK",
-    "api28": "2DXURjrUhAZZNMhqN5m1F_6HHzejcfRecP8upwJnNBd"
-}
-
-
 class ngrok:
 
   def __init__(self, TOKEN=None, USE_FREE_TOKEN=True,
@@ -472,10 +428,16 @@ class PortForward_wrapper(PortForward):
     super(self.__class__,self).__init__(connections,region,SERVICE,TOKEN,USE_FREE_TOKEN,config)
 
 
-def findPackageR(id_repo, p_name, all_=False):
+def findPackageR(id_repo, p_name, tag_name=False, all_=False):
   import requests
 
   for rawData in requests.get(f"https://api.github.com/repos/{id_repo}/releases").json():
+    if tag_name:
+      if rawData['tag_name'] != tag_name:
+        continue
+
     for f in rawData['assets']:
       if p_name == f['browser_download_url'][-len(p_name):]:
-        return f['browser_download_url'] if not all_ else f
+        rawData['assets'] = f 
+        return f['browser_download_url'] if not all_ else rawData
+  raise Exception("not found or maybe api changed!\n Try again with Change packages name")
