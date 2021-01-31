@@ -457,6 +457,7 @@ class ArgoTunnel:
 
     hostname = None
     for i in range(20):
+      try:
         with urllib.request.urlopen(f"http://127.0.0.1:{self.metricPort}/metrics") as response:
             hostname = re.search(r'userHostname=\"https://(.+)\"',
              response.read().decode('utf-8'), re.MULTILINE).group(1)
@@ -466,6 +467,9 @@ class ArgoTunnel:
             break
         if hostname == None:
             raise RuntimeError("Failed to get user hostname from cloudflared")
+      except HTTPError:
+        time.sleep(2)
+    
     argotunnelOpenDB[str(self.port)] = hostname
     accessSettingFile("argotunnelDB.json" , argotunnelOpenDB, v=False)
     return hostname
