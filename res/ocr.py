@@ -7,6 +7,7 @@ from subprocess import Popen,PIPE
 
 HOME = os.path.expanduser("~")
 CWD = os.getcwd()
+tokens = {}
 
 class ngrok:
 
