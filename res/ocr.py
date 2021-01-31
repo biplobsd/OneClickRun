@@ -236,7 +236,7 @@ def displayUrl(data, btc='b', pNamU='Public URL: ', EcUrl=None, ExUrl=None, cls=
           btcolor = 'hsla(10, 86%, 56%, 1)'
           btshado = 'hsla(10, 40%, 52%, .4)'
 
-    return display(HTML('''<style>@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');  :root {   --text-color: '''+bttxt+''';   --shadow-color: '''+btshado+''';   --btn-color: '''+btcolor+''';   --bg-color: #141218; }  * {   box-sizing: border-box; } button { position:relative; padding: 10px 20px;     border: none;   background: none;   cursor: pointer;      font-family: "Source Code Pro";   font-weight: 900;   font-size: 100%;     color: var(--text-color);      background-color: var(--btn-color);   box-shadow: var(--shadow-color) 2px 2px 22px;   border-radius: 4px;    z-index: 0;     overflow: hidden;    }  button:focus {   outline-color: transparent;   box-shadow: var(--btn-color) 2px 2px 22px; }  .right::after, button::after {   content: var(--content);   display: block;   position: absolute;   white-space: nowrap;   padding: 40px 40px;   pointer-events:none; }  button::after{   font-weight: 200;   top: -30px;   left: -20px; }   .right, .left {   position: absolute;   width: 100%;   height: 100%;   top: 0; } .right {   left: 66%; } .left {   right: 66%; } .right::after {   top: -30px;   left: calc(-66% - 20px);      background-color: var(--bg-color);   color:transparent;   transition: transform .4s ease-out;   transform: translate(0, -90%) rotate(0deg) }  button:hover .right::after {   transform: translate(0, -47%) rotate(0deg) }  button .right:hover::after {   transform: translate(0, -50%) rotate(-7deg) }  button .left:hover ~ .right::after {   transform: translate(0, -50%) rotate(7deg) }  /* bubbles */ button::before {   content: '';   pointer-events: none;   opacity: .6;   background:     radial-gradient(circle at 20% 35%,  transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),     radial-gradient(circle at 75% 44%, transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),     radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px);    width: 100%;   height: 300%;   top: 0;   left: 0;   position: absolute;   animation: bubbles 5s linear infinite both; }  @keyframes bubbles {   from {     transform: translate();   }   to {     transform: translate(0, -66.666%);   } }    Resources</style><center><a href="'''+showUrL+'''" target="_blank"><div style="width: 570px;   height: 80px; padding-top:15px"><button style='--content: "'''+showTxT+'''";'">   <div class="left"></div>'''+showTxT+'''<div class="right"></div> </div></button></a></center>'''))
+    return display(HTML('''<style>@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');  :root {   --text-color: '''+bttxt+''';   --shadow-color: '''+btshado+''';   --btn-color: '''+btcolor+''';   --bg-color: #141218; }  * {   box-sizing: border-box; } button { position:relative; padding: 10px 20px;     border: none;   background: none;   cursor: pointer;      font-family: "Source Code Pro";   font-weight: 900;   font-size: 100%;     color: var(--text-color);      background-color: var(--btn-color);   box-shadow: var(--shadow-color) 2px 2px 22px;   border-radius: 4px;    z-index: 0;     overflow: hidden;    }  button:focus {   outline-color: transparent;   box-shadow: var(--btn-color) 2px 2px 22px; }  .right::after, button::after {   content: var(--content);   display: block;   position: absolute;   white-space: nowrap;   padding: 40px 40px;   pointer-events:none; }  button::after{   font-weight: 200;   top: -30px;   left: -20px; }   .right, .left {   position: absolute;   width: 100%;   height: 100%;   top: 0; } .right {   left: 66%; } .left {   right: 66%; } .right::after {   top: -30px;   left: calc(-66% - 20px);      background-color: var(--bg-color);   color:transparent;   transition: transform .4s ease-out;   transform: translate(0, -90%) rotate(0deg) }  button:hover .right::after {   transform: translate(0, -47%) rotate(0deg) }  button .right:hover::after {   transform: translate(0, -50%) rotate(-7deg) }  button .left:hover ~ .right::after {   transform: translate(0, -50%) rotate(7deg) }  /* bubbles */ button::before {   content: '';   pointer-events: none;   opacity: .6;   background:     radial-gradient(circle at 20% 35%,  transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),     radial-gradient(circle at 75% 44%, transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),     radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px);    width: 100%;   height: 300%;   top: 0;   left: 0;   position: absolute;   animation: bubbles 5s linear infinite both; }  @keyframes bubbles {   from {     transform: translate();   }   to {     transform: translate(0, -66.666%);   } }    Resources</style><center><a href="'''+showUrL+'''" target="_blank"><div style="width: 670px;   height: 80px; padding-top:15px"><button style='--content: "'''+showTxT+'''";'">   <div class="left"></div>'''+showTxT+'''<div class="right"></div> </div></button></a></center>'''))
 
 
 def findProcess(process, command="", isPid=False):
@@ -259,6 +259,21 @@ def findProcess(process, command="", isPid=False):
                     pass
             except:
                 continue
+
+def installArgoTunnel():
+    if checkAvailable(f"{HOME}/tools/argotunnel/cloudflared"):
+        return
+    else:
+        import os
+        from shutil import unpack_archive
+        from urllib.request import urlretrieve
+
+        aTURL = "https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz"
+        urlretrieve(aTURL, 'cloudflared.tgz')
+        unpack_archive('cloudflared.tgz',
+          f'{HOME}/tools/argotunnel')
+        os.chmod(f'{HOME}/tools/argotunnel/cloudflared', 0o755)
+        os.unlink('cloudflared.tgz')
 
 def installNgrok():
     if checkAvailable("/usr/local/bin/ngrok"):
@@ -391,6 +406,71 @@ class LocalhostRun:
   def kill(self):
     self.connection.kill()
 
+class ArgoTunnel:
+  def __init__(self, port, proto='http', metrics=49589, interval=30, retries=30):
+    import os
+    filePath = "/usr/local/sessionSettings/argotunnelDB.json"
+    if not os.path.exists(filePath):
+      os.makedirs(filePath[:-17], exist_ok=True)
+      open(filePath, 'w').close()
+    
+    #Installing argotunnel
+    installArgoTunnel()
+
+    self.connection=None
+    self.proto=proto
+    self.port=port
+    self.metricPort=metrics
+    self.interval=interval
+    self.retries=retries
+
+  # def start(self):
+  #   if self.connection:self.connection.kill()
+  #   # self.connection=Popen(f"ssh -R 80:localhost:{self.port} {self.id}@ssh.localhost.run -o StrictHostKeyChecking=no".split(), stdout=PIPE, stdin=PIPE)
+  #   self.connection=Popen(f"/content/tools/argotunnel/cloudflared tunnel --url {self.proto}://0.0.0.0:{self.port} --logfile cloudflared.log".split(), stdout=PIPE, stdin=PIPE)
+  #   try:
+  #     return re.findall("https://(.*?.trycloudflare.com)",self.connection.stdout.readline().decode("utf-8"))[0]
+  #   except:
+  #     raise Exception(self.connection.stdout.readline().decode("utf-8"))
+
+  def keep_alive(self):
+    # if self.connection:self.connection.kill()
+    import urllib, requests, re
+    try:
+      argotunnelOpenDB = dict(accessSettingFile("argotunnelDB.json", v=False))
+    except TypeError:
+      argotunnelOpenDB = dict()
+
+    if findProcess("cloudflared", f"localhost:{self.metricPort}"):
+      try:
+        oldAddr = argotunnelOpenDB[str(self.port)]
+        if requests.get("http://"+oldAddr).status_code == 200:
+          return oldAddr
+      except:
+        pass
+
+    self.connection=Popen(f"{HOME}/tools/argotunnel/cloudflared tunnel --url {self.proto}://0.0.0.0:{self.port} --logfile {HOME}/tools/argotunnel/cloudflared.log --metrics localhost:{self.metricPort}".split(),
+      stdout=PIPE, stdin=PIPE, stderr=PIPE, universal_newlines=True)
+    
+    time.sleep(3)
+
+    hostname = None
+    for i in range(20):
+        with urllib.request.urlopen(f"http://127.0.0.1:{self.metricPort}/metrics") as response:
+            hostname = re.search(r'userHostname=\"https://(.+)\"',
+             response.read().decode('utf-8'), re.MULTILINE).group(1)
+            if not hostname:
+              time.sleep(1)
+              continue
+            break
+        if hostname == None:
+            raise RuntimeError("Failed to get user hostname from cloudflared")
+    argotunnelOpenDB[str(self.port)] = hostname
+    accessSettingFile("argotunnelDB.json" , argotunnelOpenDB, v=False)
+    return hostname
+
+  def kill(self):
+    self.connection.kill()
 
 class PortForward:
   def __init__(self,connections,region=None,SERVICE="localhost",TOKEN=None,USE_FREE_TOKEN=None,config=None):
@@ -400,6 +480,7 @@ class PortForward:
     self.connections=c
     self.ngrok=ngrok(TOKEN,USE_FREE_TOKEN,connections,region,config)
     self.SERVICE = SERVICE
+    self.config = config
 
   def start(self,name,btc='b',displayB=True,v=True):
     from IPython.display import clear_output
@@ -421,6 +502,18 @@ class PortForward:
           return data
     elif self.SERVICE == "ngrok":
         return self.ngrok.start(name,btc,displayB,v)
+    elif self.SERVICE == "argotunnel":
+        con=self.connections[name]
+        port=con["port"]
+        proto=con["proto"]
+        if v:
+          clear_output()
+          loadingAn(name="lds")
+          textAn("Starting Argo Tunnel ...", ty="twg")
+        data = dict(url="http://"+ArgoTunnel(port, proto, self.config[1]).keep_alive())
+        if displayB:
+          displayUrl(data, btc)
+        return data
 
 
 class PortForward_wrapper(PortForward):
