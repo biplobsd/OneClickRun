@@ -437,6 +437,8 @@ class ArgoTunnel:
   def keep_alive(self):
     # if self.connection:self.connection.kill()
     import urllib, requests, re
+    from urllib.error import HTTPError
+    
     try:
       argotunnelOpenDB = dict(accessSettingFile("argotunnelDB.json", v=False))
     except TypeError:
