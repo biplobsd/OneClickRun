@@ -127,7 +127,7 @@ class ngrok:
         time.sleep(2)
         return True
 
-    data = {"url": f"http://{host}"}
+    data = {"url": f"https://{host}"}
     if displayB:
       displayUrl(data, btc)
     return data
@@ -150,7 +150,7 @@ class ngrok:
       for h in host:
         if h['name'] == nServer:
           host = h['public_url'][8:]
-          data = {"url": f"http://{host}"}
+          data = {"url": f"https://{host}"}
           if displayB:
             displayUrl(data, btc)
           return data
@@ -552,7 +552,7 @@ class PortForward:
               clear_output()
               loadingAn(name="lds")
               textAn("Starting localhost ...", ty="twg")
-          data = dict(url="http://"+LocalhostRun(port).keep_alive())
+          data = dict(url="https://"+LocalhostRun(port).keep_alive())
           if displayB:
               displayUrl(data, btc)
           return data
@@ -566,7 +566,7 @@ class PortForward:
           clear_output()
           loadingAn(name="lds")
           textAn("Starting Argo Tunnel ...", ty="twg")
-        data = dict(url="http://"+ArgoTunnel(port, proto, self.config[1]).keep_alive())
+        data = dict(url="https://"+ArgoTunnel(port, proto, self.config[1]).keep_alive())
         if displayB:
           displayUrl(data, btc)
         return data
@@ -578,7 +578,7 @@ class PortForward:
           clear_output()
           loadingAn(name="lds")
           textAn("Starting jprq ...", ty="twg")
-        data = dict(url="http://"+jprq(port, proto).keep_alive())
+        data = dict(url="https://"+jprq(port, proto).keep_alive())
         if displayB:
           displayUrl(data, btc)
         return data
