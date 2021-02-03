@@ -534,9 +534,11 @@ class PortForward:
     for con in connections:
       c[con[0]]=dict(port=con[1],proto=con[2])
     self.connections=c
-    self.ngrok=ngrok(TOKEN,USE_FREE_TOKEN,connections,region,config)
-    self.SERVICE = SERVICE
+    if config:config[1] = closePort(config[1])
     self.config = config
+    if SERVICE="ngrok":self.ngrok=ngrok(TOKEN,USE_FREE_TOKEN,connections,region,self.config)
+    self.SERVICE = SERVICE
+    
 
   def start(self,name,btc='b',displayB=True,v=True):
     from IPython.display import clear_output
@@ -603,3 +605,13 @@ def findPackageR(id_repo, p_name, tag_name=False, all_=False):
         rawData['assets'] = f 
         return f['browser_download_url'] if not all_ else rawData
   raise Exception("not found or maybe api changed!\n Try again with Change packages name")
+
+def closePort(port):
+  import socket
+  with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    for _ in range(100):
+      if s.connect_ex(('localhost', port)) == 0:
+        port += 1
+      else:
+        return port
+  raise Exception("Close port not found!")
