@@ -268,7 +268,8 @@ def installArgoTunnel():
         import os
         from shutil import unpack_archive
         from urllib.request import urlretrieve
-
+        
+        os.makedirs(f'{HOME}/tools/argotunnel/', exist_ok=True)
         aTURL = findPackageR("cloudflare/cloudflared", "cloudflared-linux-amd64")
         urlretrieve(aTURL, f'{HOME}/tools/argotunnel/cloudflared')
         # unpack_archive('cloudflared.tgz',
