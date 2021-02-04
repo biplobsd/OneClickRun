@@ -269,12 +269,12 @@ def installArgoTunnel():
         from shutil import unpack_archive
         from urllib.request import urlretrieve
 
-        aTURL = "https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz"
-        urlretrieve(aTURL, 'cloudflared.tgz')
-        unpack_archive('cloudflared.tgz',
-          f'{HOME}/tools/argotunnel')
+        aTURL = findPackageR("cloudflare/cloudflared", "cloudflared-linux-amd64")
+        urlretrieve(aTURL, f'{HOME}/tools/argotunnel/cloudflared')
+        # unpack_archive('cloudflared.tgz',
+        #   f'{HOME}/tools/argotunnel')
         os.chmod(f'{HOME}/tools/argotunnel/cloudflared', 0o755)
-        os.unlink('cloudflared.tgz')
+        # os.unlink('cloudflared.tgz')
 
 def installNgrok():
     if checkAvailable("/usr/local/bin/ngrok"):
