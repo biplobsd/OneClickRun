@@ -453,7 +453,7 @@ class ArgoTunnel:
       except:
         pass
 
-    self.connection=Popen(f"{HOME}/tools/argotunnel/cloudflared tunnel --url {self.proto}://0.0.0.0:{self.port} --logfile {HOME}/tools/argotunnel/cloudflared.log --metrics localhost:{self.metricPort}".split(),
+    self.connection=Popen(f"{HOME}/tools/argotunnel/cloudflared tunnel --url {self.proto}://0.0.0.0:{self.port} --logfile {HOME}/tools/argotunnel/cloudflared_{self.port}.log --metrics localhost:{self.metricPort}".split(),
       stdout=PIPE, stdin=PIPE, stderr=PIPE, universal_newlines=True)
     
     time.sleep(5)
