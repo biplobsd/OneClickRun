@@ -3,6 +3,7 @@ from sys import exit as exx
 import time
 import uuid
 import re
+import select
 from subprocess import Popen,PIPE
 
 HOME = os.path.expanduser("~")
@@ -348,6 +349,8 @@ def textAn(TEXT, ty='d'):
             return display(HTML('''<style>@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);.line-1{font-family: 'Anonymous Pro', monospace;    position: relative;   border-right: 1px solid;    font-size: 15px;   white-space: nowrap;    overflow: hidden;    }.anim-typewriter{  animation: typewriter 0.4s steps(44) 0.2s 1 normal both,             blinkTextCursor 600ms steps(44) infinite normal;}@keyframes typewriter{  from{width: 0;}  to{width: '''+textcover+'''em;}}@keyframes blinkTextCursor{  from{border-right:2px;}  to{border-right-color: transparent;}}</style><div class="line-1 anim-typewriter">'''+TEXT+'''</div>'''))
 
 class LocalhostRun:
+  RE_PATTERN = r"n,\s(?:https?://)?((?:[-\w]+\.)+[\w]{2,}(?:/[-\w./?%&=]*)?)"
+  
   def __init__(self,port,id=None,interval=30,retries=30):
     import os
     filePath = "/usr/local/sessionSettings/localhostDB.json"
@@ -366,7 +369,8 @@ class LocalhostRun:
     if self.connection:self.connection.kill()
     self.connection=Popen(f"ssh -R 80:localhost:{self.port} {self.id}@ssh.localhost.run -o StrictHostKeyChecking=no".split(), stdout=PIPE, stdin=PIPE)
     try:
-      return re.findall("http://(.*?.localhost.run)",self.connection.stdout.readline().decode("utf-8"))[0]
+      outputString = read_subprocess_output(self.connection, timeout=5)
+      return re.findall(self.RE_PATTERN, outputString)[0]
     except:
       raise Exception(self.connection.stdout.readline().decode("utf-8"))
 
@@ -390,7 +394,8 @@ class LocalhostRun:
         stdout=PIPE, stdin=PIPE, stderr=PIPE)
       #print("ssh -R 80:localhost:{self.port} {self.id}@ssh.localhost.run -o StrictHostKeyChecking=no -o ServerAliveInterval={self.interval} -o ServerAliveCountMax={self.retries}")
       try:
-        newAddr = re.findall("(.*?.localhost.run)", self.connection.stdout.readline().decode("utf-8"))[0]
+        outputString = read_subprocess_output(self.connection, timeout=5)
+        newAddr = re.findall(self.RE_PATTERN, outputString)[0]
         localhostOpenDB[str(self.port)] = newAddr 
         accessSettingFile("localhostDB.json" , localhostOpenDB, v=False)
         return newAddr
@@ -618,3 +623,32 @@ def closePort(port):
       else:
         return port
   raise Exception("Close port not found!")
+
+def read_subprocess_output(process, timeout=5):
+    output = ""
+    # set the process to non-blocking mode
+    process.stdout.fileno()
+    # create a poll object to wait for data
+    poll_obj = select.poll()
+    poll_obj.register(process.stdout, select.POLLIN)
+    # read the data with a timeout
+    start_time = time.monotonic()
+    while True:
+        # calculate the remaining timeout
+        elapsed_time = time.monotonic() - start_time
+        remaining_time = timeout - elapsed_time
+        # break if the timeout has expired
+        if remaining_time <= 0:
+            process.kill()
+            output += f"\nProcess killed after {timeout} seconds due to timeout."
+            break
+        # wait for data with a timeout
+        poll_result = poll_obj.poll(remaining_time * 1000)
+        if poll_result:
+            # read the available data
+            output += process.stdout.readline().decode().strip() + "\n"
+        # break if the subprocess has exited
+        if process.poll() is not None:
+            output += process.stdout.read().decode().strip()
+            break
+    return output
