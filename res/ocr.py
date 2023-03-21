@@ -1,10 +1,11 @@
 import os
-from sys import exit as exx
+import re
 import time
 import uuid
-import re
 import select
-from subprocess import Popen,PIPE
+import psutil
+from sys import exit as exx
+from subprocess import Popen, PIPE
 
 HOME = os.path.expanduser("~")
 CWD = os.getcwd()
@@ -652,3 +653,22 @@ def read_subprocess_output(process, timeout=5):
             output += process.stdout.read().decode().strip()
             break
     return output
+
+def run_process(command, shell=False, cwd=None, env=None, notSilent=True):
+    for proc in psutil.process_iter():
+        try:
+            # Get process info as a named tuple containing the process name and command-line arguments
+            process_info = proc.as_dict(attrs=['pid', 'name', 'cmdline'])
+            process_cmdline = process_info['cmdline']
+
+            # Check if the command matches the process command-line arguments
+            if process_cmdline == command.split():
+                if notSilent:
+                    print("Killing process with PID", process_info['pid'])
+                proc.kill()
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            pass
+    if notSilent:
+        print("Starting process with command", command)
+    Popen(command, shell=shell, cwd=cwd, env=env)
+
