@@ -1,8 +1,16 @@
+<h1 align="center"> OneClickRun </h1>
+<!-- <a href="https://hits.seeyoufarm.com"><img src=""/></a> -->
+<div align="center">
+
+  <a href="https://hits.seeyoufarm.com">![hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbiplobsd%2FOneClickRun&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)</a>
+  <a href="https://github.com/biplobsd/OneClickRun/pulls?q=is%3Apr+is%3Amerged+created%3A2023-10-01..2023-10-31">![Hacktoberfest 2023 stats](https://img.shields.io/github/hacktoberfest/2023/biplobsd/OneClickRun?label=Hacktoberfest+2023)</a>
+  
+</div>
+
 ![preview](https://raw.githubusercontent.com/biplobsd/OneClickRun/master/img/preview.gif)
 
-# OneClickRun <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbiplobsd%2FOneClickRun&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
 
-[![Hacktoberfest 2023 stats](https://img.shields.io/github/hacktoberfest/2023/biplobsd/OneClickRun?label=Hacktoberfest+2023)](https://github.com/biplobsd/OneClickRun/pulls?q=is%3Apr+is%3Amerged+created%3A2023-10-01..2023-10-31)
+
 
 <b>Features:</b><br>
 `Jellyfin, aria2, ariang, rclone, rclone WebUI, Netdata, Cloud Commander, 
