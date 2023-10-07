@@ -14,32 +14,40 @@
 ![preview](https://raw.githubusercontent.com/biplobsd/OneClickRun/master/img/preview.gif)
 
 
+## 💡 Features
+  
+<table>
+  <tr>
+    <td>Jellyfin</td>
+    <td>aria2</td>
+    <td>ariang</td>
+    <td>rclone</td>
+    <td>rclone WebUI</td>
+    <td>Netdata</td>
+    <td>Cloud Commander</td>
+    <td>Ssh</td>
+  </tr>
+  <tr>
+    <td>noVnc</td>
+    <td>filebrowser</td>
+    <td>SocialFish</td>
+    <td>L3MON</td>
+    <td>SayCheese</td>
+    <td>spotify-downloader</td>
+    <td>pyLoad</td>
+    <td>code-server</td>
+  </tr>
+  <tr>
+    <td>V2ray</td>
+    <td>NoMachine</td>
+    <td>Flutter</td>
+    <td>Glances</td>
+    <td>WeTTy</td>
+    <td>Kivy</td>
+    <td>go-http-file-server</td>
+  </tr>
+</table>
 
-| Features |
-| --- |
-| Jellyfin |
-| aria2 |
-| ariang |
-| rclone |
-| rclone WebUI |
-| Netdata |
-| Cloud Commander |
-| SSH |
-| noVnc |
-| filebrowser |
-| SocialFish |
-| L3MON |
-| SayCheese |
-| spotify-downloader |
-| pyLoad |
-| code-server |
-| V2ray |
-| NoMachine |
-| Flutter |
-| Glances |
-| WeTTy |
-| Kivy |
-| go-http-file-server |
 
 
 # Usage
