@@ -15,7 +15,7 @@ class ngrok:
 
   def __init__(self, TOKEN=None, USE_FREE_TOKEN=True,
                service=[['Service1', 80, 'tcp'], ['Service2', 8080, 'tcp']],
-               region='us',
+               region='us','au',
                dBug=[f"{HOME}/.ngrok2/ngrok.yml", 4040]):
     self.region = region
     self.configPath, self.dport = dBug
