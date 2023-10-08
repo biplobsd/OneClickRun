@@ -10,9 +10,9 @@ OneClickRun is a multifunctional tool offering features like Jellyfin, aria2, SS
 [![License](https://img.shields.io/github/license/biplobsd/OneClickRun)](https://github.com/biplobsd/OneClickRun/blob/main/LICENSE)
 [![Hacktoberfest 2023 stats](https://img.shields.io/github/hacktoberfest/2023/biplobsd/OneClickRun?label=Hacktoberfest+2023)](https://github.com/biplobsd/OneClickRun/pulls?q=is%3Apr+is%3Amerged+created%3A2023-10-01..2023-10-31)
 
-</div>
-
 ![preview](https://raw.githubusercontent.com/biplobsd/OneClickRun/master/img/preview.gif)
+
+</div>
 
 ## Features
 
