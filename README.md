@@ -39,7 +39,7 @@ Click on the "Open in Colab" button.
 🔗 **Get Started in 3 Easy Steps**:
 1. **Connect with the Community** - Join our [Telegram Group](https://t.me/torrentToGM) and share your ideas. Our active and vibrant community of OneClickRun enthusiasts and team members is always there to assist and collaborate.
 2. **Create an Issue** - Before starting your contribution, make sure to raise an issue in the [Issues Tab](https://github.com/biplobsd/OneClickRun/issues). Describe your idea or improvement clearly; this helps us to track and discuss the proposed changes.
-3. **Start Your Contribution** - Once your idea is discussed, make your changes in a separate branch and get ready for a pull request. We encourage all changes to come through a GitHub pull request to the `main` branch.
+3. **Start Your Contribution** - Once your idea is discussed, make your changes in a separate branch and get ready for a pull request. We encourage all changes to come through a GitHub pull request to the `master` branch.
 
 📚 **First-time contributing on GitHub?** The [GitHub documentation](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) is a great guide on contributing to projects.
 
