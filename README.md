@@ -2,7 +2,7 @@
 
 <div align="center">
 
-OneClickRun is a multifunctional tool offering features like Firefox, Jellyfin, aria2, and more. Ready-to-use script that combines a variety of tasks in a single click.
+OneClickRun is a multifunctional tool offering features like Jellyfin, aria2, SSH, and more. The key offering of this repository is the OneClickRun notebook, a ready-to-use script that combines a variety of tasks in a single click.
 
 [![hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbiplobsd%2FOneClickRun&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![Stars](https://img.shields.io/github/stars/biplobsd/OneClickRun?style=social)](https://github.com/biplobsd/OneClickRun)
@@ -18,9 +18,9 @@ OneClickRun is a multifunctional tool offering features like Firefox, Jellyfin, 
 
 | | | | | | | | |
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-|Firefox|Jellyfin|aria2|ariang|rclone|rclone WebUI|Netdata|Cloud Commander|
-|SSH|noVnc|filebrowser|SocialFish|L3MON|SayCheese|spotify-downloader|pyLoad|
-|code-server|V2ray|NoMachine|Flutter|Glances|WeTTy|Kivy|go-http-file-server|
+|Jellyfin|aria2|ariang|rclone|rclone WebUI|Netdata|Cloud Commander|SSH|
+|noVnc|filebrowser|SocialFish|L3MON|SayCheese|spotify-downloader|pyLoad|code-server|
+|V2ray|NoMachine|Flutter|Glances|WeTTy|Kivy|go-http-file-server|...|
 
 ## Usage
 
