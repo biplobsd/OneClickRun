@@ -1,9 +1,8 @@
-## Describe your changes
+## Description of Changes
 
-## Issue ticket number and link
+## Issue Ticket Number and Link
 
-## Checklist before requesting a review
-- [ ] I have included the issue i am fixing by adding #IssueNumber.
-- [ ] Specified the categroy of the issue.
-- [ ] Added a gift or screenshot (if applicable)
-- [ ] Added additional information (optional).
+## Review Checklist
+- [ ] I have included the issue I am fixing by adding #IssueNumber.
+- [ ] Added a GIF or screenshot (if applicable).
+- [ ] Provided additional information (optional).
