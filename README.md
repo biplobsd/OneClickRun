@@ -34,7 +34,7 @@ Click on the "Open in Colab" button.
 
 # Contributing to OneClickRun
 
-**Got a unique idea or improvement for OneClickRun?** We're excited to hear it and welcome your contribution!
+**Do you have a unique idea or improvement for OneClickRun?** We're excited to hear it and welcome your contribution!
 
 🔗 **Get Started in 3 Easy Steps**:
 1. **Connect with the Community** - Join our [Telegram Group](https://t.me/torrentToGM) and share your ideas. Our active and vibrant community of OneClickRun enthusiasts and team members is always there to assist and collaborate.
