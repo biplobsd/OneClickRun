@@ -48,3 +48,7 @@ Click on the "Open in Colab" button.
 ## Many Thanks To Our Contributors
 
 [![contributors](https://contrib.rocks/image?repo=biplobsd/OneClickRun)](https://github.com/biplobsd/OneClickRun/graphs/contributors)
+
+
+## Development
+For more information on how to contribute, please check [`.github/DEVELOPMENT.md`](https://github.com/biplobsd/OneClickRun/blob/master/.github/DEVELOPMENT.md). Thanks 🚀
