@@ -48,3 +48,8 @@ Click on the "Open in Colab" button.
 ## Many Thanks To Our Contributors
 
 [![contributors](https://contrib.rocks/image?repo=biplobsd/OneClickRun)](https://github.com/biplobsd/OneClickRun/graphs/contributors)
+
+## Code of Conduct 
+
+This project adheres to the Contributor Covenant Code of Conduct. By participating, you are expected to uphold this code.
+[Code of Conduct](/OneClickRun/.github/CODE_OF_CONDUCT.md)
