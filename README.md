@@ -52,4 +52,4 @@ Click on the "Open in Colab" button.
 ## Code of Conduct 
 
 This project adheres to the Contributor Covenant Code of Conduct. By participating, you are expected to uphold this code.
-[Code of Conduct](/OneClickRun/.github/CODE_OF_CONDUCT.md)
+[Code of Conduct](/.github/CODE_OF_CONDUCT.md)
